@@ -1,0 +1,21 @@
+//
+//  Buy568-PrefixHeader.pch
+//  Buy568
+//
+//  Created by echo23 on 15/9/25.
+//  Copyright (c) 2015年 echo. All rights reserved.
+//
+
+#ifndef Buy568_Buy568_PrefixHeader_pch
+#define Buy568_Buy568_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "Define.h"
+#import "AFNetworking.h"
+#import "HttpTools.h"
+#import "UIImageView+WebCache.h"
+#import "LZXHelper.h"
+#import "JHRefresh.h"
+#import "SVProgressHUD.h"
+#endif

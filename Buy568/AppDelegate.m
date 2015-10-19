@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "WelcomeViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,7 +17,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    return YES;
+    //首先从沙盒中取出所存入的标识（此标识用来判断程序是否是第一次运行，如果第一次运行就执行欢迎页界面）
+    NSUserDefaults *userD = [NSUserDefaults standardUserDefaults];
+    NSString *flageStr = [userD objectForKey:@"isFirstUse"];//从沙盒中取出存储的数据
+    if(flageStr == nil||[flageStr isEqualToString:@""]){//如果为空，就执行欢迎界面
+        [userD setObject:@"1" forKey:@"isFirstUse"];
+        self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        self.window.backgroundColor = [UIColor whiteColor];
+        NSLog(@"第一次启动");
+        WelcomeViewController *welcomVC = [[WelcomeViewController alloc] init];
+        self.window.rootViewController = welcomVC;
+        return YES;
+    }else{
+        NSLog(@"不是第一次启动");
+        return YES;
+    }
+        
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
